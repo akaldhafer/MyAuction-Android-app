@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "103349905971",
+    "project_id": "myacution-35117",
+    "storage_bucket": "myacution-35117.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103349905971:android:26dfcbb225f89420dfd146",
+        "android_client_info": {
+          "package_name": "com.example.myauction"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103349905971-m51dr4hb7mp8sk6ncqs79hnvkbbrihv1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWgevDwiSPepBfa8nnsnsLTeZ3qZRFI-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103349905971-m51dr4hb7mp8sk6ncqs79hnvkbbrihv1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
