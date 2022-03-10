@@ -1,6 +1,6 @@
 MyAuction 
 
-The application will be for users who want to put their products on the MyAuction mobile application. The application will allow other users to participate in the auction of that product and bid till one of the participants won the auction. 
+The application will be for users who want to sell their items on the MyAuction mobile application. The application will allow other users to participate in the auction of that item and bid till one of the participants win the item auction. 
 
 
 Languages and tools:
