@@ -28,20 +28,20 @@ Encrypt user profile
 Database Tables 
 Tables 
 User: 
-Name
-Email 
-Phone No
-Address 
-Password 
+Name,
+Email,
+Phone No,
+Address, 
+Password, 
 
 Products:
-Product Title
-Product Description 
-Start price
-IsActive 
-Seller Email
-Buyer Email 
-Bidders Email list 
-Bidders price list 
-Date and Time 
+Product Title,
+Product Description, 
+Start price,
+IsActive, 
+Seller Email,
+Buyer Email ,
+Bidders Email list ,
+Bidders price list ,
+Date and Time, 
 Reviews list
