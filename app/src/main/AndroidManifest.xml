@@ -10,13 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAuction">
         <activity
+            android:name=".auth.VerifyEmail"
+            android:exported="false" />
+        <activity
+            android:name=".activity.HomePageActivity"
+            android:exported="false" />
+        <activity
             android:name=".auth.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".auth.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.LoginActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
