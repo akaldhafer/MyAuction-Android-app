@@ -10,5 +10,10 @@
     <color name="blue">#3CA0EF</color>
     <color name="red">#991D1D</color>
     <color name="gold">#E48C0B</color>
+    <color name="colorPrimary">#4D4672</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="textColor">#060606</color>
+    <color name="orange">#FA6B1B</color>
 
 </resources>

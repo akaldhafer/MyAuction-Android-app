@@ -49,5 +49,5 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.6.0-alpha02'
 
-
+    implementation 'com.github.smarteist:autoimageslider:1.4.0'
 }

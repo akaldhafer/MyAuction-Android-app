@@ -20,7 +20,7 @@
     <com.google.android.material.textfield.TextInputEditText
 
         android:id="@+id/text_name"
-        android:drawableTint="@color/blue"
+        android:drawableTint="@color/colorPrimary"
         android:drawableStart="@drawable/person"
         android:background="@drawable/background"
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
     <com.google.android.material.textfield.TextInputEditText
 
         android:id="@+id/text_phone"
-        android:drawableTint="@color/blue"
+        android:drawableTint="@color/colorPrimary"
         android:drawableStart="@drawable/person"
         android:background="@drawable/background"
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
     <com.google.android.material.textfield.TextInputEditText
 
         android:id="@+id/text_address"
-        android:drawableTint="@color/blue"
+        android:drawableTint="@color/colorPrimary"
         android:drawableStart="@drawable/address"
         android:background="@drawable/background"
         android:layout_width="match_parent"
@@ -74,7 +74,7 @@
     <com.google.android.material.textfield.TextInputEditText
 
         android:id="@+id/text_email"
-        android:drawableTint="@color/blue"
+        android:drawableTint="@color/colorPrimary"
         android:drawableStart="@drawable/ic_baseline_email_24"
         android:background="@drawable/background"
         android:layout_width="match_parent"
@@ -91,7 +91,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/password"
-        android:drawableTint="@color/blue"
+        android:drawableTint="@color/colorPrimary"
         android:drawableStart="@drawable/password"
         android:background="@drawable/background"
         android:layout_width="match_parent"
@@ -120,7 +120,7 @@
         android:text="@string/register"
         android:textStyle="bold"
         android:textAlignment="center"
-        app:backgroundTint="@color/blue"
+        app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -134,7 +134,7 @@
         android:layout_height="40dp"
         android:autoLink="web"
         android:text="@string/haveccount"
-        android:textColorLink="@color/blue"
+        android:textColorLink="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

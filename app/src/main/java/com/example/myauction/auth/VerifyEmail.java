@@ -9,12 +9,14 @@ import android.view.View;
 import com.example.myauction.R;
 import com.example.myauction.activity.MainActivity;
 
+import java.util.Objects;
+
 public class VerifyEmail extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar ().hide (); //This Line hides the action bar
+        Objects.requireNonNull(getSupportActionBar()).hide (); //This Line hides the action bar
         setContentView(R.layout.activity_verify_email);
     }
 

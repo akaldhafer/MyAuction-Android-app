@@ -29,6 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity implements ViewUserMessage {
 
@@ -38,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity implements ViewUserMessa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar ().hide (); //This Line hides the action bar
+        Objects.requireNonNull(getSupportActionBar()).hide (); //This Line hides the action bar
         setContentView(R.layout.activity_register);
 
         edName = findViewById(R.id.text_name);
@@ -64,7 +65,6 @@ public class RegisterActivity extends AppCompatActivity implements ViewUserMessa
                 && !TextUtils.isEmpty(Address)
                 && !TextUtils.isEmpty(Phone)){
             //send info
-
             RegisterWithEmailAndPassword(Name,Address,Phone,Email,Password);
 
         }else{
@@ -85,7 +85,6 @@ public class RegisterActivity extends AppCompatActivity implements ViewUserMessa
                 return;
             }if (TextUtils.isEmpty(Password)){
                 edPassword.setError("password is required");
-                return;
             }
 
 
@@ -126,11 +125,9 @@ public class RegisterActivity extends AppCompatActivity implements ViewUserMessa
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(RegisterActivity.this, "Try again later !",Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterActivity.this, e.getMessage(),Toast.LENGTH_LONG).show();
                             }
                         });
-
-
                     }
                 })
                 .addOnFailureListener(new OnFailureListener()
@@ -139,7 +136,6 @@ public class RegisterActivity extends AppCompatActivity implements ViewUserMessa
                     public void onFailure(@NonNull Exception e)
                     {
                         Toast.makeText(RegisterActivity.this, e.getMessage(),Toast.LENGTH_LONG).show();
-
                     }
                 });
     }
