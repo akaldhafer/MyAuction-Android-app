@@ -105,185 +105,20 @@
                     android:textSize="16sp" />
             </RelativeLayout>
 
-            <HorizontalScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="200dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintVertical_bias="0.102"
+                    tools:layout_editor_absoluteX="19dp" />
 
-                    <LinearLayout
-                        android:layout_width="160dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/white_circular_border"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="12dp">
-
-                        <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="150dp"
-                            android:src="@drawable/img" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingLeft="@dimen/small"
-                            android:paddingRight="@dimen/small">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Edison Table Lamp"
-                                android:textColor="@color/textColor"
-                                android:textSize="14sp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="$350"
-                                    android:textColor="@color/textColor"
-                                    android:textSize="13sp" />
-
-
-                                <Space
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"/>
-                                <ImageView
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:padding="6.5dp"
-                                    android:src="@drawable/shopping"
-                                    />
-
-
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="160dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/white_circular_border"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_marginStart="20dp"
-                        android:padding="12dp">
-
-                        <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="150dp"
-                            android:src="@drawable/img" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingLeft="@dimen/small"
-                            android:paddingRight="@dimen/small">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Edison Table Lamp"
-                                android:textColor="@color/textColor"
-                                android:textSize="14sp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="$350"
-                                    android:textColor="@color/textColor"
-                                    android:textSize="13sp" />
-
-
-
-                                <Space
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"/>
-                                <ImageView
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:padding="6.5dp"
-                                    android:src="@drawable/shopping"
-                                    />
-
-
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="160dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/white_circular_border"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_marginStart="20dp"
-                        android:padding="12dp">
-
-                        <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="150dp"
-                            android:src="@drawable/img" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingLeft="@dimen/small"
-                            android:paddingRight="@dimen/small">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Edison Table Lamp"
-                                android:textColor="@color/textColor"
-                                android:textSize="14sp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="$350"
-                                    android:textColor="@color/textColor"
-                                    android:textSize="13sp" />
-
-                                <Space
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"/>
-                                <ImageView
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:padding="6.5dp"
-                                    android:src="@drawable/shopping"
-                                    android:background="@drawable/light_orange_circle"/>
-
-
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </LinearLayout>
-            </HorizontalScrollView>
+            </LinearLayout>
 
         </LinearLayout>
 

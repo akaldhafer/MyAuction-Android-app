@@ -6,9 +6,11 @@
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1345" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable/address.xml" value="0.1345" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable/background.xml" value="0.195" />
+        <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable/fire.xml" value="0.123" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable/grey_circular_border.xml" value="0.2005" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1345" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable/light_orange_circle.xml" value="0.2005" />
+        <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable/menu.xml" value="0.123" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable/password.xml" value="0.1345" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable/person.xml" value="0.195" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable/shopping.xml" value="0.1345" />
@@ -21,6 +23,7 @@
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_verify_email.xml" value="0.32395833333333335" />
+        <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/item_card.xml" value="0.30104166666666665" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.195" />
       </map>
     </option>
