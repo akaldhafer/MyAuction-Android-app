@@ -21,8 +21,7 @@
             android:background="@drawable/grey_circular_border"
             android:onClick="onMenuClick"
             android:padding="12dp"
-            android:src="@drawable/menu"
-            />
+            android:src="@drawable/menu" />
 
 
         <LinearLayout
@@ -35,15 +34,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MyAuction Store"
-                android:textColor="@color/textColor"
+                android:text="@string/myauction_store"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
                 android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/xsmall"
-                android:text="Find what is new today !"
+                android:text="@string/find_what_is_new_today"
+                android:textColor="@color/colorPrimary"
                 android:textSize="15sp" />
         </LinearLayout>
 

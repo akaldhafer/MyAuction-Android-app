@@ -4,13 +4,22 @@
     <string name="password">Password</string>
     <string name="login">LOGIN</string>
     <string name="register">SIGN UP</string>
-    <string name="name">Name</string>
     <string name="phone">Phone NO</string>
     <string name="address">Address</string>
     <string name="newaccount">Create new account!</string>
     <string name="haveccount">Already have account!</string>
     <string name="verifyEmail">Please check your email and click on the sent link to verify your account !</string>
     <string name="about">Enjoy selling and buying exclusive items on MyAuction Platform with simple steps and safe environment.</string>
+    <string name="name">Name</string>
+    <string name="uemail">Email</string>
+    <string name="not_found">Not found !</string>
+    <string name="hi_again">Hi again !</string>
+    <string name="sale_items">Sell Items</string>
+    <string name="purchases">Purchases</string>
+    <string name="current_bidding">Current Bidding</string>
+    <string name="myauction_store">MyAuction Store</string>
+    <string name="find_what_is_new_today">Find what is new today !</string>
+    <string name="sold_items">Sold items</string>
 
 
 </resources>
