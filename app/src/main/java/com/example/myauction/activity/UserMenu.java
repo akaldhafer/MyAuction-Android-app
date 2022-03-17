@@ -15,9 +15,6 @@ public class UserMenu extends AppCompatActivity {
         setContentView(R.layout.activity_user_menu);
     }
 
-    public void onClickHome(View view) {
-    }
-
     public void onClickSellItemButton(View view) {
     }
 
@@ -28,5 +25,11 @@ public class UserMenu extends AppCompatActivity {
     }
 
     public void onClickSoldButton(View view) {
+    }
+
+    public void onHomeClick(View view) {
+    }
+
+    public void onProfilePage(View view) {
     }
 }

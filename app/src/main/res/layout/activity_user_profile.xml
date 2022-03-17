@@ -7,15 +7,68 @@
     android:background="@color/white"
     tools:context=".activity.UserProfile"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/topBar"
+        android:padding="@dimen/medium">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/grey_circular_border"
+            android:onClick="onMenuClick"
+            android:padding="12dp"
+            android:src="@drawable/menu" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/myauction_store"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xsmall"
+                android:text="@string/find_what_is_new_today"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/grey_circular_border"
+            android:onClick="onHomePage"
+            android:padding="@dimen/small"
+            android:src="@drawable/home" />
+
+
+
+    </RelativeLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/CardViewProfile"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="7dp"
+        android:layout_below="@+id/topBar"
         android:backgroundTint="@color/colorPrimary"
         app:cardCornerRadius="30dp"
         app:cardElevation="10dp">
@@ -28,8 +81,8 @@
 
             <ImageView
                 android:id="@+id/setImage"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="50dp"
