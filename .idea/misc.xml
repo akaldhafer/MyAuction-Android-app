@@ -20,13 +20,17 @@
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable/violet_circular_border.xml" value="0.2005" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/drawable/white_circular_border.xml" value="0.2005" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_home_page.xml" value="0.25" />
+        <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_item_page.xml" value="0.25" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_register.xml" value="0.25" />
-        <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_user_menu.xml" value="0.2" />
+        <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_sell_item.xml" value="0.3145833333333333" />
+        <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_user_menu.xml" value="0.33" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_user_profile.xml" value="0.32864583333333336" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_verify_email.xml" value="0.32395833333333335" />
-        <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/item_card.xml" value="0.30104166666666665" />
+        <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/activity_view_my_items.xml" value="0.28125" />
+        <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/item_card.xml" value="0.33" />
+        <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/layout/view_list.xml" value="0.28125" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyAuction/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.195" />
       </map>
     </option>

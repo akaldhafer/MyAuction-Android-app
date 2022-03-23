@@ -69,9 +69,11 @@
 
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:src="@drawable/auctionimg" />
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/auctionimg"
+            android:layout_marginBottom="20dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,7 +94,7 @@
                     android:layout_alignParentStart="true"
                     android:drawableStart="@drawable/fire"
                     android:drawableTint="@color/white"
-                    android:text="New Items"
+                    android:text="@string/new_items"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
@@ -100,7 +102,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="View all"
+                    android:text="@string/view_all"
                     android:onClick="onViewAllItems"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
@@ -108,13 +110,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="2dp">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/ListView"
+                    android:id="@+id/NewItemListView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     android:orientation="horizontal"
                     app:layout_constraintVertical_bias="0.102"
                     tools:layout_editor_absoluteX="19dp" />

@@ -20,6 +20,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAuction">
         <activity
+            android:name=".activity.ItemPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ViewMyItems"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SellItemActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.UserMenu"
             android:exported="false" />
         <activity

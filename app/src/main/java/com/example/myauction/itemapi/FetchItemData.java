@@ -41,14 +41,14 @@ public class FetchItemData implements PresentItemFetchData {
                         String sellerEmail= task.getResult().getDocuments().get(i).getString("sellerEmail");
                         String buyerEmail= task.getResult().getDocuments().get(i).getString("buyerEmail");
                         String isActive= task.getResult().getDocuments().get(i).getString("isActive");
-                        String token= task.getResult().getDocuments().get(i).getString("token");
-                        ArrayList<String> bidderEmailList= (ArrayList<String>) task.getResult().getDocuments().get(i).get("bidderEmailList");
-                        ArrayList<Integer> bidderPriceList=(ArrayList<Integer>) task.getResult().getDocuments().get(i).get("bidderPriceList");
-                        ArrayList<String> bidderReviewList=(ArrayList<String>) task.getResult().getDocuments().get(i).get("bidderReviewList");
+                        String id= task.getResult().getDocuments().get(i).getString("id");
+                        String[][] bidderList= (String[][]) task.getResult().getDocuments().get(i).get("bidderList");
+                        int startPrice =Integer.parseInt(task.getResult().getDocuments().get(i).get("startPrice").toString());
+                        int soldPrice =Integer.parseInt(task.getResult().getDocuments().get(i).get("soldPrice").toString());
 
-                        ItemModel itemModel= new ItemModel(title,  description,  imageUri, sellerEmail,
-                                buyerEmail,  isActive,  token, bidderEmailList,
-                                bidderPriceList, bidderReviewList);
+                        ItemModel itemModel= new ItemModel( id,  title,  description,  imageUri,
+                                 sellerEmail,  buyerEmail,  isActive,  startPrice,
+                         soldPrice,  bidderList);
                         //send data to activity
                         viewItemFetchMessage.onUpdateSuccess(itemModel);
                     }

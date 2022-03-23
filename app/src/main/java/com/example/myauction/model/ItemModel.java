@@ -3,24 +3,55 @@ package com.example.myauction.model;
 import java.util.ArrayList;
 
 public class ItemModel {
-    private String title, description, imageUri, sellerEmail, buyerEmail, isActive,token;
-    ArrayList<String> bidderEmailList = new ArrayList<>();
-    ArrayList<Integer> bidderPriceList = new ArrayList<>();
-    ArrayList<String> bidderReviewList = new ArrayList<>();
+    private String id, title, description, imageUri, sellerEmail, buyerEmail, isActive;
+    private int startPrice, soldPrice;
+    private String[][] bidderList;
 
-    public ItemModel(String title, String description, String imageUri, String sellerEmail,
-                     String buyerEmail, String isActive, String token, ArrayList<String> bidderEmailList,
-                     ArrayList<Integer> bidderPriceList, ArrayList<String> bidderReviewList) {
+    public ItemModel(String id, String title, String description, String imageUri,
+                     String sellerEmail, String buyerEmail, String isActive, int startPrice,
+                     int soldPrice, String[][] bidderList) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.imageUri = imageUri;
         this.sellerEmail = sellerEmail;
         this.buyerEmail = buyerEmail;
         this.isActive = isActive;
-        this.token = token;
-        this.bidderEmailList = bidderEmailList;
-        this.bidderPriceList = bidderPriceList;
-        this.bidderReviewList = bidderReviewList;
+        this.startPrice = startPrice;
+        this.soldPrice = soldPrice;
+        this.bidderList = bidderList;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getStartPrice() {
+        return startPrice;
+    }
+
+    public void setStartPrice(int startPrice) {
+        this.startPrice = startPrice;
+    }
+
+    public int getSoldPrice() {
+        return soldPrice;
+    }
+
+    public void setSoldPrice(int soldPrice) {
+        this.soldPrice = soldPrice;
+    }
+
+    public String[][] getBidderList() {
+        return bidderList;
+    }
+
+    public void setBidderList(String[][] bidderList) {
+        this.bidderList = bidderList;
     }
 
     public String getTitle() {
@@ -71,35 +102,8 @@ public class ItemModel {
         this.isActive = isActive;
     }
 
-    public String getToken() {
-        return token;
-    }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
 
-    public ArrayList<String> getBidderEmailList() {
-        return bidderEmailList;
-    }
 
-    public void setBidderEmailList(ArrayList<String> bidderEmailList) {
-        this.bidderEmailList = bidderEmailList;
-    }
 
-    public ArrayList<Integer> getBidderPriceList() {
-        return bidderPriceList;
-    }
-
-    public void setBidderPriceList(ArrayList<Integer> bidderPriceList) {
-        this.bidderPriceList = bidderPriceList;
-    }
-
-    public ArrayList<String> getBidderReviewList() {
-        return bidderReviewList;
-    }
-
-    public void setBidderReviewList(ArrayList<String> bidderReviewList) {
-        this.bidderReviewList = bidderReviewList;
-    }
 }

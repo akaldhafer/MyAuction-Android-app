@@ -33,20 +33,20 @@ public class UploadItemData implements PresentItemData, ViewItemMessage {
     }
 
     @Override
-    public void onSuccessUpdate(Activity activity, String title, String description, String imageUri, String sellerEmail,
-                                String buyerEmail, String isActive, String token, ArrayList<String> bidderEmailList,
-                                ArrayList<Integer> bidderPriceList, ArrayList<String> bidderReviewList) {
+    public void onSuccessUpdate(Activity activity, String id, String title, String description, String imageUri,
+                                String sellerEmail, String buyerEmail, String isActive, int startPrice,
+                                int soldPrice, String[][] bidderList) {
 
-        ItemModel itemModel= new ItemModel( title,  description,  imageUri, sellerEmail,
-                 buyerEmail,  isActive,  token, bidderEmailList,
-                bidderPriceList, bidderReviewList);
+        ItemModel itemModel= new ItemModel( id,  title,  description,  imageUri,
+                sellerEmail,  buyerEmail,  isActive,  startPrice,
+                soldPrice,  bidderList);
 
-        FirebaseFirestore.getInstance().collection("ItemData").document(token)
+        FirebaseFirestore.getInstance().collection("ItemData").document(id)
                 .set(itemModel, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    viewItemMessage.onUpdateSuccess("Posted Successfully");
+                    viewItemMessage.onUpdateSuccess("item Successfully");
                 }else {
                     viewItemMessage.onUpdateFailure("Check your internet !");
                     System.err.println(TAG+task.getException().getMessage());
