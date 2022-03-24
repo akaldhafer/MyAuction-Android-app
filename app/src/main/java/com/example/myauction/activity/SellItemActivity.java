@@ -34,6 +34,7 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class SellItemActivity extends AppCompatActivity implements ViewItemMessage {
@@ -124,14 +125,17 @@ public class SellItemActivity extends AppCompatActivity implements ViewItemMessa
         }
     }
     private void Validate(String imageuri) {
-        String isActive = "yes";
+        String isActive = "active";
         String title = edTitle.getText().toString().trim();
         String description = edDesc.getText().toString().trim();
         int startPrice =Integer.parseInt(edPrice.getText().toString().trim());
         int soldPrice = 0;
         String sellerEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         String buyerEmail = "";
-        String[][] bidderList = null;
+        ArrayList<String> bidderEmailList= new ArrayList<>();
+        ArrayList<String> bidderPriceList= new ArrayList<>();
+        bidderEmailList.add(sellerEmail);
+        bidderPriceList.add(edPrice.getText().toString());
         Log.d(TAG, "checkdetails: url before upload " + imageuri);
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         String id = timestamp.toString().trim();
@@ -140,7 +144,7 @@ public class SellItemActivity extends AppCompatActivity implements ViewItemMessa
 
             uploadItemData.onSuccessUpdate(this,id,  title,  description,  imageuri,
                     sellerEmail,  buyerEmail,  isActive,  startPrice,
-                    soldPrice,  bidderList);
+                    soldPrice,  bidderEmailList, bidderPriceList);
 
         }else{
             if(TextUtils.isEmpty(title)){

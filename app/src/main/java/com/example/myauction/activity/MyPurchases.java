@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myauction.R;
+import com.example.myauction.adapter.PurchasesItemAdapter;
 import com.example.myauction.adapter.ViewMyItemAdapter;
 import com.example.myauction.itemapi.FetchItemData;
 import com.example.myauction.itemapi.ViewItemFetchMessage;
@@ -21,9 +22,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class ViewMyItems extends AppCompatActivity implements ViewItemFetchMessage {
+public class MyPurchases extends AppCompatActivity implements ViewItemFetchMessage {
     private RecyclerView ListDataView;
-    private ViewMyItemAdapter Adapter;
+    private PurchasesItemAdapter Adapter;
     TextView title;
     ArrayList<ItemModel> arrayList = new ArrayList<>();
     String email;
@@ -36,7 +37,7 @@ public class ViewMyItems extends AppCompatActivity implements ViewItemFetchMessa
         setContentView(R.layout.view_list);
         title = findViewById(R.id.pageTitle);
         email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-        title.setText("View My Items");
+        title.setText("My Purchase List");
         //get the similar room
         ListDataView = findViewById(R.id.ListView);
 
@@ -53,7 +54,7 @@ public class ViewMyItems extends AppCompatActivity implements ViewItemFetchMessa
         ListDataView.setItemAnimator(new DefaultItemAnimator());
         ListDataView.setHasFixedSize(true);
 
-        Adapter = new ViewMyItemAdapter(this, arrayList);
+        Adapter = new PurchasesItemAdapter(this, arrayList);
         ListDataView.setAdapter(Adapter);
         ListDataView.invalidate();
     }
@@ -61,10 +62,10 @@ public class ViewMyItems extends AppCompatActivity implements ViewItemFetchMessa
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onUpdateSuccess(ItemModel message) {
-        if(message != null && message.getSellerEmail().equals(email) && message.getIsActive().equals("active")){
+        if(message != null && message.getBuyerEmail().equals(email)){
             ItemModel Model = new ItemModel(message.getId(),message.getTitle(),message.getDescription(),message.getImageUri(),
                     message.getSellerEmail(),message.getBuyerEmail(),message.getIsActive(),message.getStartPrice(),message.getSoldPrice()
-            ,message.getBidderEmailList(), message.getBidderPriceList());
+                    ,message.getBidderEmailList(), message.getBidderPriceList());
             arrayList.add(Model);
         }
         Adapter.notifyDataSetChanged();
@@ -73,16 +74,15 @@ public class ViewMyItems extends AppCompatActivity implements ViewItemFetchMessa
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(ViewMyItems.this, UserMenu.class);
+        Intent intent = new Intent(MyPurchases.this, UserMenu.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
     }
 
-
     @Override
     public void onUpdateFailure(String message) {
-        Toast.makeText(ViewMyItems.this, message, Toast.LENGTH_LONG).show();
+        Toast.makeText(MyPurchases.this, message, Toast.LENGTH_LONG).show();
 
     }
 

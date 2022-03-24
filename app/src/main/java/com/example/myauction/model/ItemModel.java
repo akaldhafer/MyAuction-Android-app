@@ -5,11 +5,12 @@ import java.util.ArrayList;
 public class ItemModel {
     private String id, title, description, imageUri, sellerEmail, buyerEmail, isActive;
     private int startPrice, soldPrice;
-    private String[][] bidderList;
+    private ArrayList<String> bidderEmailList;
+    private ArrayList<String> bidderPriceList;
 
     public ItemModel(String id, String title, String description, String imageUri,
                      String sellerEmail, String buyerEmail, String isActive, int startPrice,
-                     int soldPrice, String[][] bidderList) {
+                     int soldPrice, ArrayList<String> bidderEmailList, ArrayList<String> bidderPriceList) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -19,7 +20,24 @@ public class ItemModel {
         this.isActive = isActive;
         this.startPrice = startPrice;
         this.soldPrice = soldPrice;
-        this.bidderList = bidderList;
+        this.bidderEmailList = bidderEmailList;
+        this.bidderPriceList = bidderPriceList;
+    }
+
+    public ArrayList<String> getBidderEmailList() {
+        return bidderEmailList;
+    }
+
+    public void setBidderEmailList(ArrayList<String> bidderEmailList) {
+        this.bidderEmailList = bidderEmailList;
+    }
+
+    public ArrayList<String> getBidderPriceList() {
+        return bidderPriceList;
+    }
+
+    public void setBidderPriceList(ArrayList<String> bidderPriceList) {
+        this.bidderPriceList = bidderPriceList;
     }
 
     public String getId() {
@@ -46,13 +64,6 @@ public class ItemModel {
         this.soldPrice = soldPrice;
     }
 
-    public String[][] getBidderList() {
-        return bidderList;
-    }
-
-    public void setBidderList(String[][] bidderList) {
-        this.bidderList = bidderList;
-    }
 
     public String getTitle() {
         return title;

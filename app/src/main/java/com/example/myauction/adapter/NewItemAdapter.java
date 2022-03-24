@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class NewItemAdapter extends RecyclerView.Adapter<NewItemAdapter.ViewHolder> {
     private Context context;
     private ArrayList<ItemModel> arrayList = new ArrayList<>();
-    private FirebaseFirestore firebaseFirestore;
+
 
     public NewItemAdapter(Context context, ArrayList<ItemModel> arrayList) {
         this.context = context;
@@ -50,7 +50,10 @@ public class NewItemAdapter extends RecyclerView.Adapter<NewItemAdapter.ViewHold
     public void onBindViewHolder(@NonNull NewItemAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         String id, title, description, imageUri, sellerEmail, buyerEmail, isActive;
         int startPrice, soldPrice;
-        String[][] bidderList;
+        ArrayList<String> bidderEmailList = new ArrayList<>();
+        ArrayList<String> bidderPriceList = new ArrayList<>();
+
+        isActive = arrayList.get(holder.getAdapterPosition()).getIsActive();
         id= arrayList.get(holder.getAdapterPosition()).getId();
         title = arrayList.get(holder.getAdapterPosition()).getTitle();
         description =arrayList.get(holder.getAdapterPosition()).getDescription();
@@ -59,12 +62,13 @@ public class NewItemAdapter extends RecyclerView.Adapter<NewItemAdapter.ViewHold
         sellerEmail= arrayList.get(holder.getAdapterPosition()).getSellerEmail();
         buyerEmail= arrayList.get(holder.getAdapterPosition()).getBuyerEmail();
         soldPrice= arrayList.get(holder.getAdapterPosition()).getSoldPrice();
-        bidderList = arrayList.get(holder.getAdapterPosition()).getBidderList();
+        bidderEmailList.addAll(arrayList.get(holder.getAdapterPosition()).getBidderEmailList());
+        bidderPriceList.addAll(arrayList.get(holder.getAdapterPosition()).getBidderPriceList());
 
         holder.edTitle.setText(title);
         holder.edPrice.setText("Start Price: "+String.valueOf(startPrice)+" RM");
-        if(bidderList != null){
-            holder.bidder.setText(bidderList.length+" Bidder");
+        if(bidderPriceList != null){
+            holder.bidder.setText(bidderPriceList.size()+" Bidder");
         }else{
             holder.bidder.setText("0 Bidder");
         }
@@ -86,8 +90,10 @@ public class NewItemAdapter extends RecyclerView.Adapter<NewItemAdapter.ViewHold
                 intent.putExtra("imageUri",imageUri);
                 intent.putExtra("sellerEmail",sellerEmail);
                 intent.putExtra("buyerEmail",buyerEmail);
+                intent.putExtra("isActive",isActive);
                 intent.putExtra("soldPrice",soldPrice);
-                intent.putExtra("bidderList",bidderList);
+                intent.putStringArrayListExtra("bidderPriceList",bidderPriceList);
+                intent.putStringArrayListExtra("bidderEmailList",bidderEmailList);
                 view.getContext().startActivity(intent);
             }
         });

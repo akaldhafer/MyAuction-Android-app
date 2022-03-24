@@ -27,12 +27,20 @@ public class UserMenu extends AppCompatActivity {
     }
 
     public void onClickPurchaseButton(View view) {
+        Intent intent = new Intent(UserMenu.this, MyPurchases.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 
     public void onClickCurrentBiddingButton(View view) {
     }
 
     public void onClickSoldButton(View view) {
+        Intent intent = new Intent(UserMenu.this, MySoldItems.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 
     public void onHomeClick(View view) {

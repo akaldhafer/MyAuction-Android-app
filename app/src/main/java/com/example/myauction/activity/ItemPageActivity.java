@@ -1,5 +1,6 @@
 package com.example.myauction.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,9 +21,15 @@ import com.example.myauction.adapter.NewItemAdapter;
 import com.example.myauction.itemapi.FetchItemData;
 import com.example.myauction.itemapi.ViewItemFetchMessage;
 import com.example.myauction.model.ItemModel;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class ItemPageActivity extends AppCompatActivity implements ViewItemFetchMessage {
@@ -30,8 +38,10 @@ public class ItemPageActivity extends AppCompatActivity implements ViewItemFetch
     ArrayList<ItemModel> arrayList = new ArrayList<>();
 
     String id, title, description, imageUri, sellerEmail, buyerEmail, isActive;
-    int startPrice, soldPrice, currentPrice, size;
-    String[][] bidderList;
+    int startPrice, soldPrice;
+    int currentPrice;
+    ArrayList<String> bidderEmailList= new ArrayList<String>();
+    ArrayList<String> bidderPriceList = new ArrayList<String>();
     TextView vTitle, vDesc, vPrice, vBidder, vCurrentPrice;
     EditText edBidingPrice;
     ImageView imageView;
@@ -60,15 +70,18 @@ public class ItemPageActivity extends AppCompatActivity implements ViewItemFetch
         imageUri = getIntent().getStringExtra("imageUri");
         startPrice = getIntent().getIntExtra("startPrice",0);
         soldPrice = getIntent().getIntExtra("soldPrice",0);
-        bidderList =(String[][]) getIntent().getSerializableExtra("bidderList");
+        bidderEmailList =getIntent().getStringArrayListExtra("bidderEmailList");
+        bidderPriceList =getIntent().getStringArrayListExtra("bidderPriceList");
+
+        int size = bidderPriceList.size();
         //set the current room view
         vTitle.setText(title);
         vDesc.setText(description);
-        if(bidderList != null){
-            vBidder.setText(bidderList.length+" Bidder");
-            for(int i = 0; i< bidderList.length;i++){
-                currentPrice = Integer.parseInt(bidderList[i][1]);
-            }
+        if(bidderPriceList != null){
+            vBidder.setText(bidderEmailList.size()+" Bidder");
+            String cprice = bidderPriceList.get(size-1);
+            currentPrice = Integer.parseInt(cprice);
+
             vCurrentPrice.setText("Current Price: "+currentPrice+" RM");
         }else{
             vBidder.setText("0 Bidder");
@@ -100,10 +113,10 @@ public class ItemPageActivity extends AppCompatActivity implements ViewItemFetch
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onUpdateSuccess(ItemModel message) {
-        if(message != null && message.getIsActive().equals("yes") && !message.getId().equals(id)){
+        if(message != null && message.getIsActive().equals("active") && !message.getId().equals(id)){
             ItemModel Model = new ItemModel(message.getId(),message.getTitle(),message.getDescription(),message.getImageUri(),
                     message.getSellerEmail(),message.getBuyerEmail(),message.getIsActive(),message.getStartPrice(),message.getSoldPrice()
-                    ,message.getBidderList());
+                    ,message.getBidderEmailList(), message.getBidderPriceList());
             arrayList.add(Model);
 
         }
@@ -119,8 +132,6 @@ public class ItemPageActivity extends AppCompatActivity implements ViewItemFetch
 
     public void onViewAllItems(View view) {
     }
-
-
 
     @Override
     public void onBackPressed() {
@@ -139,5 +150,41 @@ public class ItemPageActivity extends AppCompatActivity implements ViewItemFetch
     }
 
     public void onBidding(View view) {
+        int bidPrice = Integer.parseInt(edBidingPrice.getText().toString().trim());
+        String bemail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+
+        if(edBidingPrice.getText() != null && bidPrice > currentPrice && !bemail.equals(sellerEmail)){
+            //add the user to the bidding list
+            bidderEmailList.add(bemail);
+            bidderPriceList.add(edBidingPrice.getText().toString());
+            System.out.println(bidderPriceList+"  "+bidderEmailList);
+            FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+            DocumentReference record = firebaseFirestore.collection("ItemData").document(id);
+            record.update("bidderEmailList",bidderEmailList,"bidderPriceList",bidderPriceList).addOnSuccessListener(new OnSuccessListener< Void >() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(view.getContext(), "Bid Successfully", Toast.LENGTH_LONG).show();
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(view.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
+        }else{
+            if(bemail.equals(sellerEmail)){
+                Toast.makeText(view.getContext(), "You cannot bid on your item !", Toast.LENGTH_LONG).show();
+            }
+            if(bidPrice <= currentPrice){
+                Toast.makeText(view.getContext(), "The bidding price should be greater than the current price", Toast.LENGTH_LONG).show();
+            }
+            if(edBidingPrice.getText() == null){
+                edBidingPrice.setError("Please Enter Bid Price");
+            }
+        }
+
+
     }
 }

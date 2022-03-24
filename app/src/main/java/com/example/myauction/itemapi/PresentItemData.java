@@ -7,6 +7,6 @@ import java.util.ArrayList;
 public interface PresentItemData {
     void  onSuccessUpdate(Activity activity, String id, String title, String description, String imageUri,
                           String sellerEmail, String buyerEmail, String isActive, int startPrice,
-                          int soldPrice, String[][] bidderList);
+                          int soldPrice, ArrayList<String> bidderEmailList, ArrayList<String> bidderPriceList);
 
 }

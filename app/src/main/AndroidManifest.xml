@@ -20,6 +20,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAuction">
         <activity
+            android:name=".activity.MySoldItems"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MyPurchases"
+            android:exported="false" />
+        <activity
             android:name=".activity.ItemPageActivity"
             android:exported="false" />
         <activity

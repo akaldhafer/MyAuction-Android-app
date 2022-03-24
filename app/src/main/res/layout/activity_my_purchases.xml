@@ -2,10 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,8 +13,7 @@
         android:layout_margin="7dp"
         android:layout_marginBottom="20dp"
         android:padding="10dp"
-        android:id="@+id/CardView"
-        >
+        android:id="@+id/CardView">
 
 
         <LinearLayout
@@ -24,15 +22,17 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/vcardImage"
+                android:id="@+id/prImage"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_gravity="center"
                 android:background="@drawable/img" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
@@ -43,7 +43,7 @@
                     <TextView
                         android:layout_width="10dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="30"
+                        android:layout_weight="25"
                         android:lines="1"
                         android:padding="10dp"
                         android:background="@color/colorPrimary"
@@ -52,26 +52,24 @@
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/vcardTitle"
+                    <TextView
+                        android:id="@+id/prTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="70"
+                        android:layout_weight="75"
                         android:padding="10dp"
-                        android:inputType="text"
                         android:text="@string/not_found"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         android:textStyle="normal" />
 
                 </LinearLayout>
-
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
@@ -82,7 +80,7 @@
                     <TextView
                         android:layout_width="10dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="30"
+                        android:layout_weight="25"
                         android:lines="1"
                         android:padding="10dp"
                         android:background="@color/colorPrimary"
@@ -91,25 +89,26 @@
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/vcardDescription"
+                    <TextView
+                        android:id="@+id/prDesc"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="70"
+                        android:layout_weight="75"
                         android:padding="10dp"
-                        android:inputType="textMultiLine"
                         android:text="@string/not_found"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
+                        android:textSize="13sp"
                         android:textStyle="normal" />
 
                 </LinearLayout>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
@@ -120,7 +119,7 @@
                     <TextView
                         android:layout_width="10dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="30"
+                        android:layout_weight="25"
                         android:lines="1"
                         android:padding="10dp"
                         android:text="@string/item_price"
@@ -128,83 +127,133 @@
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold" />
-                    <EditText
+
+                    <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="70"
-                        android:id="@+id/vcardPrice"
-                        android:textSize="14sp"
+                        android:layout_weight="75"
+                        android:id="@+id/prStartPrice"
+                        android:textSize="13sp"
                         android:textStyle="normal"
-                        android:inputType="number"
-                        android:text="Not found!"
+                        android:text="@string/not_found"
                         android:padding="10dp"
-                        android:textColor="@color/black"
-                        />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
                     android:weightSum="100"
-                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_vertical"
                     android:layout_height="wrap_content">
-                    <Button
-                        android:layout_width="wrap_content"
+
+                    <TextView
+                        android:layout_width="10dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/vcardUpdate"
-                        android:drawableEnd="@drawable/update"
-                        android:drawableTint="@color/white"
-                        android:backgroundTint="@color/colorPrimary"
+                        android:layout_weight="25"
+                        android:lines="1"
                         android:padding="10dp"
-                        android:layout_margin="15dp"
-                        android:text="@string/update"
-                        android:textSize="14sp"
+                        android:text="@string/sold_price"
+                        android:background="@color/colorPrimary"
                         android:textColor="@color/white"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
-                    <Space
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"/>
-                    <Button
-                        android:layout_width="wrap_content"
+
+                    <TextView
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/vcardDelete"
-                        android:drawableEnd="@drawable/delete"
-                        android:drawableTint="@color/white"
-                        android:backgroundTint="@color/red"
+                        android:layout_weight="75"
+                        android:id="@+id/prSoldPrice"
+                        android:textSize="13sp"
+                        android:textStyle="normal"
+                        android:text="@string/not_found"
                         android:padding="10dp"
-                        android:layout_margin="15dp"
-                        android:text="@string/delete"
-                        android:textSize="14sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
+
                 </LinearLayout>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/vcardStop"
-                    android:layout_gravity="center_horizontal"
-                    android:drawableEnd="@drawable/hand"
-                    android:drawableTint="@color/white"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:padding="10dp"
-                    android:layout_margin="5dp"
-                    android:text="@string/stop_auction"
-                    android:textSize="14sp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:padding="10dp"
-                    android:textAlignment="center"
-                    android:text="@string/the_winner_of_the_bidding_will_be_the_bidder_who_paid_more"
-                    android:textColor="@color/textColor"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="11dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="25"
+                        android:lines="1"
+                        android:padding="10dp"
+                        android:text="@string/seller_email"
+                        android:background="@color/colorPrimary"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/prSellerEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:padding="10dp"
+                        android:text="@string/not_found"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:textStyle="normal" />
+
+                    <ImageButton
+                        android:id="@+id/prSendEmail"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:background="@drawable/send"
+                        android:layout_margin="2dp"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="100"
+                        android:padding="10dp"
+                        android:text="@string/please_contact_the_seller_to_complete_the_payment_process_and_delivery"
+                        android:textColor="@color/textColor"
+                        android:textSize="12sp"
+                        android:textAlignment="center"
+                        android:textStyle="normal" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

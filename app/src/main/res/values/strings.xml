@@ -23,9 +23,9 @@
     <string name="let_s_do_some_management">Let\'s do some management</string>
     <string name="sell_item_on_the_auction">Sell Item On The Auction</string>
     <string name="lets_fill_up_the_needed_details">Lets fill up the needed details</string>
-    <string name="item_title">Item Title</string>
-    <string name="item_description">Item Description</string>
-    <string name="item_price">Item Start Price</string>
+    <string name="item_title">Title</string>
+    <string name="item_description">Description</string>
+    <string name="item_price">Start Price</string>
     <string name="upload_the_item_photo">Upload the item photo</string>
     <string name="sell">Post on the Auction</string>
     <string name="view_items">View My Items</string>
@@ -38,9 +38,15 @@
     <string name="bidder">Bidder</string>
     <string name="bid">Bid</string>
     <string name="similar">Similar</string>
-    <string name="bid_price">Bid Price</string>
+    <string name="bid_price">Enter Bid Price</string>
     <string name="current_bidding_price">Current Bidding Price</string>
     <string name="start_price">Start Price</string>
+    <string name="stop_auction">Stop Auction and Sell</string>
+    <string name="the_winner_of_the_bidding_will_be_the_bidder_who_paid_more">The winner of the bidding will be the bidder who paid more !</string>
+    <string name="sold_price">Sold Price</string>
+    <string name="seller_email">Seller Email</string>
+    <string name="please_contact_the_seller_to_complete_the_payment_process_and_delivery">Please contact the seller to complete the payment process and delivery</string>
+    <string name="buyer_email">Buyer Email</string>
 
 
 </resources>

@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myauction.R;
+import com.example.myauction.activity.ViewMyItems;
 import com.example.myauction.model.ItemModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -44,20 +45,30 @@ public class ViewMyItemAdapter extends RecyclerView.Adapter<ViewMyItemAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewMyItemAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        String title, description, location,imageUrl;
-        int price;
+        String id, title, description, imageUri, sellerEmail, buyerEmail, isActive;
+        int startPrice, soldPrice;
+        ArrayList<String> bidderEmailList = new ArrayList<>();
+        ArrayList<String> bidderPriceList = new ArrayList<>();
 
+        isActive = arrayList.get(holder.getAdapterPosition()).getIsActive();
+        id= arrayList.get(holder.getAdapterPosition()).getId();
         title = arrayList.get(holder.getAdapterPosition()).getTitle();
         description =arrayList.get(holder.getAdapterPosition()).getDescription();
-        imageUrl = arrayList.get(position).getImageUri();
-        price = arrayList.get(holder.getAdapterPosition()).getStartPrice();
+        imageUri = arrayList.get(position).getImageUri();
+        startPrice = arrayList.get(holder.getAdapterPosition()).getStartPrice();
+        sellerEmail= arrayList.get(holder.getAdapterPosition()).getSellerEmail();
+        buyerEmail= arrayList.get(holder.getAdapterPosition()).getBuyerEmail();
+        soldPrice= arrayList.get(holder.getAdapterPosition()).getSoldPrice();
+        bidderEmailList.addAll(arrayList.get(holder.getAdapterPosition()).getBidderEmailList());
+        bidderPriceList.addAll(arrayList.get(holder.getAdapterPosition()).getBidderPriceList());
+        String getBuyerEmail = bidderEmailList.get(bidderEmailList.size()-1);
+        int getSoldPrice = Integer.parseInt(bidderPriceList.get(bidderPriceList.size()-1));
 
         holder.edTitle.setText(title);
         holder.edDesc.setText(description);
-        holder.edPrice.setText(String.valueOf(price));
+        holder.edPrice.setText(String.valueOf(startPrice));
         //set the image
-        Picasso.with(this.context).load(imageUrl).fit().into(holder.imageView);
-        String id= arrayList.get(holder.getAdapterPosition()).getId();
+        Picasso.with(this.context).load(imageUri).fit().into(holder.imageView);
         //delete
         holder.delete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -125,6 +136,27 @@ public class ViewMyItemAdapter extends RecyclerView.Adapter<ViewMyItemAdapter.Vi
             }
         });
 
+        //stop the auction of this item
+        holder.stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebaseFirestore = FirebaseFirestore.getInstance();
+                DocumentReference record = firebaseFirestore.collection("ItemData").document(id);
+                record.update("isActive","sold", "buyerEmail",getBuyerEmail, "soldPrice", getSoldPrice).addOnSuccessListener(new OnSuccessListener< Void >() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(view.getContext(), "Auction Stopped and item sold", Toast.LENGTH_LONG).show();
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(view.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
+
     }
 
     @Override
@@ -133,7 +165,7 @@ public class ViewMyItemAdapter extends RecyclerView.Adapter<ViewMyItemAdapter.Vi
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
         private EditText edTitle, edDesc, edPrice;
-        private Button delete, update;
+        private Button delete, update, stop;
         private ImageView imageView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -142,6 +174,7 @@ public class ViewMyItemAdapter extends RecyclerView.Adapter<ViewMyItemAdapter.Vi
             edPrice = itemView.findViewById(R.id.vcardPrice);
             update = itemView.findViewById(R.id.vcardUpdate);
             delete = itemView.findViewById(R.id.vcardDelete);
+            stop = itemView.findViewById(R.id.vcardStop);
             imageView = itemView.findViewById(R.id.vcardImage);
         }
     }
