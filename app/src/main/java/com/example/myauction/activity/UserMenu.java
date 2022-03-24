@@ -34,6 +34,10 @@ public class UserMenu extends AppCompatActivity {
     }
 
     public void onClickCurrentBiddingButton(View view) {
+        Intent intent = new Intent(UserMenu.this, CurrentBiddingItem.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 
     public void onClickSoldButton(View view) {

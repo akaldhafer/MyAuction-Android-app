@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ public class MyPurchases extends AppCompatActivity implements ViewItemFetchMessa
     TextView title;
     ArrayList<ItemModel> arrayList = new ArrayList<>();
     String email;
+    ImageView menu, profile;
 
 
     @Override
@@ -36,13 +39,35 @@ public class MyPurchases extends AppCompatActivity implements ViewItemFetchMessa
         Objects.requireNonNull(getSupportActionBar()).hide (); //This Line hides the action bar
         setContentView(R.layout.view_list);
         title = findViewById(R.id.pageTitle);
+
         email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         title.setText("My Purchase List");
+
+        menu = findViewById(R.id.onMenu);
+        profile= findViewById(R.id.onProfile);
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyPurchases.this, UserMenu.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyPurchases.this, UserProfile.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
         //get the similar room
         ListDataView = findViewById(R.id.ListView);
-
         FetchItemData FetchData = new FetchItemData(this, this);
-
         RecyclerViewMethod();
         FetchData.onSuccessUpdate(this);
     }

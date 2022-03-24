@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical"
-    tools:context=".activity.ItemPageActivity">
+    android:orientation="vertical">
 
 
     <!--Body-->
@@ -32,12 +30,12 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/pImage"
+                    android:id="@+id/cImage"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="5dp"
-                    android:background="@color/white" />
+                    android:background="@color/white"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -46,7 +44,7 @@
                     android:paddingRight="2dp">
 
                     <TextView
-                        android:id="@+id/pTitle"
+                        android:id="@+id/cTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/item_title"
@@ -62,7 +60,7 @@
                         android:layout_margin="1dp">
 
                         <TextView
-                            android:id="@+id/pCurrentPrice"
+                            android:id="@+id/cCurrentPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/current_bidding_price"
@@ -76,7 +74,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"/>
                         <TextView
-                            android:id="@+id/pBiddingNo"
+                            android:id="@+id/cBiddingNo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
@@ -92,7 +90,7 @@
                         android:gravity="center_vertical"
                         android:layout_margin="1dp">
                         <TextView
-                            android:id="@+id/pPrice"
+                            android:id="@+id/cstartPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/start_price"
@@ -107,7 +105,7 @@
                             android:layout_weight="1"/>
 
                         <EditText
-                            android:id="@+id/pBiddingPrice"
+                            android:id="@+id/cBiddingPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
@@ -123,7 +121,7 @@
                             android:layout_weight="1"/>
 
                         <Button
-                            android:id="@+id/pBid"
+                            android:id="@+id/cbtBid"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
@@ -155,7 +153,34 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="100"
-                            android:id="@+id/pDesc"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            android:textAlignment="center"
+                            android:text="@string/item_description"
+                            android:background="@color/colorPrimary"
+                            android:padding="5dp"
+                            android:textColor="@color/white"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="100"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="100"
+                            android:id="@+id/cDesc"
                             android:textSize="14sp"
                             android:textStyle="normal"
                             android:layout_margin="5dp"
@@ -168,67 +193,11 @@
                     </LinearLayout>
 
                 </LinearLayout>
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/grey_circular_border"
-            android:backgroundTint="@color/colorPrimary"
-            android:orientation="vertical"
-            android:padding="1dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="1dp"
-                android:padding="8dp">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:background="@drawable/grey_circular_border"
-                    android:drawableStart="@drawable/fire"
-                    android:drawableTint="@color/colorPrimary"
-                    android:padding="5dp"
-                    android:text="@string/similar"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/grey_circular_border"
-                    android:onClick="onViewAllItems"
-                    android:padding="5dp"
-                    android:text="@string/view_all"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="2dp"
-                android:orientation="vertical"
-                >
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/SimilarListView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="1dp"
-                    />
-
-            </LinearLayout>
-
-        </LinearLayout>
 
     </LinearLayout>
 

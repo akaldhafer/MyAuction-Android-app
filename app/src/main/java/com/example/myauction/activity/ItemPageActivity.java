@@ -84,6 +84,7 @@ public class ItemPageActivity extends AppCompatActivity implements ViewItemFetch
 
             vCurrentPrice.setText("Current Price: "+currentPrice+" RM");
         }else{
+            currentPrice = startPrice;
             vBidder.setText("0 Bidder");
             vCurrentPrice.setText("Current Price: "+startPrice+" RM");
         }
@@ -152,7 +153,6 @@ public class ItemPageActivity extends AppCompatActivity implements ViewItemFetch
     public void onBidding(View view) {
         int bidPrice = Integer.parseInt(edBidingPrice.getText().toString().trim());
         String bemail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-
 
         if(edBidingPrice.getText() != null && bidPrice > currentPrice && !bemail.equals(sellerEmail)){
             //add the user to the bidding list
