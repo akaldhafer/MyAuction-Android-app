@@ -66,7 +66,7 @@ public class NewItemAdapter extends RecyclerView.Adapter<NewItemAdapter.ViewHold
         bidderPriceList.addAll(arrayList.get(holder.getAdapterPosition()).getBidderPriceList());
 
         holder.edTitle.setText(title);
-        holder.edPrice.setText("Start Price: "+String.valueOf(startPrice)+" RM");
+        holder.edPrice.setText(String.valueOf(startPrice)+" RM");
         if(bidderPriceList != null){
             holder.bidder.setText(bidderPriceList.size()+" Bidder");
         }else{

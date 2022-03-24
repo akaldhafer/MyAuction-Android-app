@@ -32,6 +32,9 @@
             android:name=".activity.ItemPageActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.ViewAllItems"
+            android:exported="false" />
+        <activity
             android:name=".activity.ViewMyItems"
             android:exported="false" />
         <activity

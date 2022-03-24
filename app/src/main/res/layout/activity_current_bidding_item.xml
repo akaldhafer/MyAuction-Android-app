@@ -186,7 +186,7 @@
                             android:layout_margin="5dp"
                             android:textAlignment="textStart"
                             android:text="@string/not_found"
-                            android:padding="5dp"
+                            android:padding="10dp"
                             android:textColor="@color/black"
                             />
 

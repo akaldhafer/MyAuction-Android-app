@@ -132,6 +132,10 @@ public class ItemPageActivity extends AppCompatActivity implements ViewItemFetch
     }
 
     public void onViewAllItems(View view) {
+        Intent intent = new Intent(ItemPageActivity.this, ViewAllItems.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 
     @Override

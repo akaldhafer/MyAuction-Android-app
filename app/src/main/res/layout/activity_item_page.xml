@@ -190,12 +190,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:background="@drawable/grey_circular_border"
                     android:drawableStart="@drawable/fire"
-                    android:drawableTint="@color/colorPrimary"
+                    android:drawableTint="@color/white"
                     android:padding="5dp"
                     android:text="@string/similar"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -203,11 +202,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:background="@drawable/grey_circular_border"
                     android:onClick="onViewAllItems"
                     android:padding="5dp"
                     android:text="@string/view_all"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </RelativeLayout>

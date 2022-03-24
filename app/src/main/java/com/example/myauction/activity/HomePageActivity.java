@@ -75,6 +75,10 @@ public class HomePageActivity extends AppCompatActivity implements ViewItemFetch
     }
 
     public void onViewAllItems(View view) {
+        Intent intent = new Intent(HomePageActivity.this, ViewAllItems.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 
     public void onProfilePage(View view) {
