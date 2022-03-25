@@ -2,6 +2,7 @@ package com.example.myauction.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,12 +43,16 @@ public class HomePageActivity extends AppCompatActivity implements ViewItemFetch
         FetchData.onSuccessUpdate(this);
     }
     public void RecyclerViewMethod() {
+//
+//        LinearLayoutManager manager = new LinearLayoutManager(this);
+//        manager.setOrientation(LinearLayoutManager.HORIZONTAL);
+//        ListDataView.setLayoutManager(manager);
+//        ListDataView.setItemAnimator(new DefaultItemAnimator());
+//        ListDataView.setHasFixedSize(true);
 
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        manager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        ListDataView.setLayoutManager(manager);
-        ListDataView.setItemAnimator(new DefaultItemAnimator());
-        ListDataView.setHasFixedSize(true);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
+        ListDataView.setLayoutManager(mLayoutManager);
+
 
         Adapter = new NewItemAdapter(this, arrayList);
         ListDataView.setAdapter(Adapter);

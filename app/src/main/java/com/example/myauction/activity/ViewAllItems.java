@@ -113,7 +113,7 @@ public class ViewAllItems extends AppCompatActivity implements ViewItemFetchMess
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(ViewAllItems.this, UserMenu.class);
+        Intent intent = new Intent(ViewAllItems.this, HomePageActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
