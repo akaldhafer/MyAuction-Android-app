@@ -87,7 +87,7 @@ public class MyPurchases extends AppCompatActivity implements ViewItemFetchMessa
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onUpdateSuccess(ItemModel message) {
-        if(message != null && message.getBuyerEmail().equals(email)){
+        if(message != null && message.getBuyerEmail().equals(email) && message.getIsActive().equals("sold")){
             ItemModel Model = new ItemModel(message.getId(),message.getTitle(),message.getDescription(),message.getImageUri(),
                     message.getSellerEmail(),message.getBuyerEmail(),message.getIsActive(),message.getStartPrice(),message.getSoldPrice()
                     ,message.getBidderEmailList(), message.getBidderPriceList());

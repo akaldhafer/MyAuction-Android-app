@@ -145,6 +145,10 @@ public class ViewMyItemAdapter extends RecyclerView.Adapter<ViewMyItemAdapter.Vi
                 record.update("isActive","sold", "buyerEmail",getBuyerEmail, "soldPrice", getSoldPrice).addOnSuccessListener(new OnSuccessListener< Void >() {
                     @Override
                     public void onSuccess(Void aVoid) {
+                        //delete from the ui
+                        arrayList.remove(holder.getAdapterPosition());
+                        notifyItemRemoved(holder.getAdapterPosition());
+                        notifyItemRangeChanged(holder.getAdapterPosition(), arrayList.size());
                         Toast.makeText(view.getContext(), "Auction Stopped and item sold", Toast.LENGTH_LONG).show();
 
                     }

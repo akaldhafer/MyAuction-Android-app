@@ -60,7 +60,7 @@ public class ItemPageActivity extends AppCompatActivity implements ViewItemFetch
         imageView = findViewById(R.id.pImage);
 
 
-        //get current room
+        //get current item
         title = getIntent().getStringExtra("title");
         id = getIntent().getStringExtra("id");
         sellerEmail = getIntent().getStringExtra("sellerEmail");
@@ -74,7 +74,7 @@ public class ItemPageActivity extends AppCompatActivity implements ViewItemFetch
         bidderPriceList =getIntent().getStringArrayListExtra("bidderPriceList");
 
         int size = bidderPriceList.size();
-        //set the current room view
+        //set the current iem view
         vTitle.setText(title);
         vDesc.setText(description);
         if(bidderPriceList != null){

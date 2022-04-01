@@ -17,15 +17,13 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-
+     //Auto Authentication
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide(); //This Line hides the action bar
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            // Name, email address, and profile photo Url
-            String email = user.getEmail();
             // Check if user's email is verified
             boolean emailVerified = user.isEmailVerified();
             Intent intent;

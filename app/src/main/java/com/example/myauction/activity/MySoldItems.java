@@ -90,6 +90,7 @@ public class MySoldItems extends AppCompatActivity implements ViewItemFetchMessa
     @Override
     public void onUpdateSuccess(ItemModel message) {
         if(message != null && message.getSellerEmail().equals(email) && message.getIsActive().equals("sold")){
+
             ItemModel Model = new ItemModel(message.getId(),message.getTitle(),message.getDescription(),message.getImageUri(),
                     message.getSellerEmail(),message.getBuyerEmail(),message.getIsActive(),message.getStartPrice(),message.getSoldPrice()
                     ,message.getBidderEmailList(), message.getBidderPriceList());

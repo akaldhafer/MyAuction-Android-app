@@ -32,8 +32,6 @@ public class SymmtCrypto {   //secret chars
         } catch (NoSuchAlgorithmException | NoSuchPaddingException ex) {
             ex.printStackTrace();}
     }
-
-
     //encrypt: Input: Original data; Output: cipherText
     @RequiresApi(api = Build.VERSION_CODES.O)
     public String encrypt(String data ) throws Exception{
@@ -41,7 +39,6 @@ public class SymmtCrypto {   //secret chars
         //cipher introduces fundamental methods: update(), doFinal()
         byte[] cipherText = cipher.doFinal( data.getBytes() );
         return Base64.getEncoder().encodeToString(cipherText);}
-
 
     //decrypt: Input: cipherText; Output: Original data
     @RequiresApi(api = Build.VERSION_CODES.O)
